@@ -28,3 +28,23 @@ export function getInitialPatients(): Patient[] {
     }
   ];
 }
+
+export function filterPatients(patients: Patient[], search: string): Patient[] {
+  const normalizedSearch = search.trim().toLowerCase();
+
+  // Simula un cálculo pesado para que se note cuándo useMemo evita recomputarlo.
+  let expensiveAccumulator = 0;
+  for (let i = 0; i < 10000; i += 1) {
+    expensiveAccumulator += (i * 7) % 13;
+  }
+  void expensiveAccumulator;
+
+  if (!normalizedSearch) {
+    return patients;
+  }
+
+  return patients.filter((patient) => {
+    const haystack = `${patient.name} ${patient.role} ${patient.status}`.toLowerCase();
+    return haystack.includes(normalizedSearch);
+  });
+}

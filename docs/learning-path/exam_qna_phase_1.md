@@ -81,3 +81,42 @@
 - **Nivel basico:** respondes definiciones.
 - **Nivel intermedio:** explicas causa-efecto en runtime.
 - **Nivel entrevista senior:** conectas concepto + decision de arquitectura + tradeoff.
+
+---
+
+# Fase 2 - Rendimiento y Optimizacion
+
+## 13) Diferencia entre `useMemo` y `useCallback`
+**Respuesta corta:** `useMemo` memoiza valores, `useCallback` memoiza funciones.
+
+**Explicacion:**
+- `useMemo` evita recalculos costosos cuando no cambian dependencias.
+- `useCallback` evita crear una nueva referencia de funcion cuando no cambian dependencias.
+
+## 14) Que es igualdad referencial y por que importa
+**Respuesta corta:** es comparar si dos referencias apuntan al mismo objeto/funcion.
+
+**Explicacion:**
+- React y `React.memo` dependen de comparaciones por referencia.
+- Aunque dos objetos tengan mismo contenido, si son nuevas referencias se consideran distintos.
+
+## 15) ¿Por qué es una mala idea envolver ABSOLUTAMENTE TODOS los componentes en `React.memo`?
+**Respuesta:** porque `React.memo` tambien tiene costo (comparacion de props y complejidad extra). Si el componente es barato o cambia siempre, memoizar no aporta y puede empeorar rendimiento/mantenibilidad.
+
+## 16) ¿En qué escenario específico el uso de `useCallback` sería totalmente inútil o incluso perjudicial?
+**Respuesta:** cuando la funcion no se pasa a hijos memorizados ni se usa como dependencia donde importe la identidad. En ese caso solo agrega sobrecarga y ruido.
+
+## 17) ¿Para qué sirve `createContext` y qué papel cumple el `Provider`?
+**Respuesta corta:** `createContext` crea el canal de dato compartido y el `Provider` publica el valor para su subárbol.
+
+**Explicacion:**
+- `createContext` define la estructura del contexto.
+- `Provider` entrega `value` a los componentes descendientes.
+- Si `value` cambia, los consumidores de ese contexto se actualizan.
+
+## 18) ¿Para qué se usa `useContext`?
+**Respuesta corta:** para leer el valor del contexto más cercano.
+
+**Explicacion:**
+- Evita pasar props por múltiples capas cuando varios componentes necesitan el mismo dato.
+- Es ideal para datos transversales como tema, usuario o idioma.

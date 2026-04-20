@@ -11,6 +11,8 @@
 - **Cleanup (`useEffect`)**: funcion de limpieza que React ejecuta antes de rerun del efecto o al desmontar.
 - **Commit Phase**: etapa donde React aplica cambios reales al DOM.
 - **Component**: funcion (o clase) que devuelve UI declarativa en React.
+- **Context API**: mecanismo de React para compartir datos entre componentes sin prop drilling.
+- **createContext**: funcion que crea un contexto y su estructura de Provider/Consumer.
 
 ## D
 - **Diffing**: comparacion entre arbol previo y nuevo para detectar cambios minimos.
@@ -42,12 +44,15 @@
 - **One-way Data Flow**: flujo unidireccional de datos: padre -> hijo por props; hijo notifica por callbacks.
 
 ## P
+- **Provider (Context Provider)**: componente que publica el `value` del contexto a su subárbol.
 - **Props**: datos de entrada de un componente, de solo lectura para quien los recibe.
 - **PostCSS**: herramienta de transformacion de CSS usada por Tailwind/Autoprefixer.
 
 ## R
 - **React Element**: objeto JS que describe que UI se quiere renderizar.
+- **React.memo**: HOC que evita re-render de un componente si sus props mantienen igualdad superficial.
 - **Reconciliation**: algoritmo de React para decidir que actualizar en el DOM.
+- **Referential Equality**: dos referencias apuntan al mismo objeto/funcion en memoria (`a === b`).
 - **Render Phase**: ejecucion de componentes para construir el nuevo arbol de elementos.
 
 ## S
@@ -59,6 +64,10 @@
 - **TypeScript**: superset tipado de JavaScript para detectar errores temprano.
 
 ## U
+- **useCallback**: memoiza la referencia de una funcion entre renders cuando sus dependencias no cambian.
+- **useContext**: lee el valor del contexto más cercano provisto por un Provider.
+- **useMemo**: memoiza un valor computado para evitar recalculos costosos innecesarios.
+- **useRef**: guarda un valor mutable persistente entre renders sin disparar render al cambiarlo.
 - **Unmount**: momento en que el componente se elimina del arbol.
 - **Updater Function**: forma de `setState(prev => next)` que usa estado previo confiable.
 

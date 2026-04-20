@@ -1,12 +1,22 @@
-import { useState } from "react";
+import { memo, useRef, useState } from "react";
 import type { Patient } from "../types/patient";
+import { usePerformanceContext } from "../context";
 
 interface PatientCardProps {
   patient: Patient;
   onHydrationBoost: (patientId: string) => void;
+  onDeletePatient: (patientId: string) => void;
 }
 
-export default function PatientCard({ patient, onHydrationBoost }: PatientCardProps) {
+function PatientCard({ patient, onHydrationBoost, onDeletePatient }: PatientCardProps) {
+  // Leer contexto aquí nos permite demostrar que cambios de Context atraviesan React.memo.
+  const { contextVersion } = usePerformanceContext();
+
+  // Contador de renders para observar en consola qué tarjetas se re-renderizan.
+  const renderCountRef = useRef(0);
+  renderCountRef.current += 1;
+  console.log(`[render] PatientCard ${patient.id} #${renderCountRef.current}`);
+
   // Lazy initializer: this callback only runs on first mount.
   // It avoids recomputing initial values during future renders.
   const [notesVisible, setNotesVisible] = useState<boolean>(() => false);
@@ -41,6 +51,9 @@ export default function PatientCard({ patient, onHydrationBoost }: PatientCardPr
         <p>
           Focus: <strong>{patient.focusLevel}%</strong>
         </p>
+        <p className="col-span-2 text-xs text-slate-500">
+          Context version: <strong>{contextVersion}</strong>
+        </p>
       </div>
 
       <div className="mt-4 flex gap-2">
@@ -57,6 +70,13 @@ export default function PatientCard({ patient, onHydrationBoost }: PatientCardPr
         >
           {notesVisible ? "Hide" : "Show"} Notes
         </button>
+
+        <button
+          className="rounded-md border border-rose-300 px-3 py-2 text-sm font-medium text-rose-700"
+          onClick={() => onDeletePatient(patient.id)}
+        >
+          Remove
+        </button>
       </div>
 
       {/*
@@ -67,3 +87,9 @@ export default function PatientCard({ patient, onHydrationBoost }: PatientCardPr
     </article>
   );
 }
+
+// React.memo hace shallow compare de props; evita render si las referencias de props no cambiaron.
+const MemoizedPatientCard = memo(PatientCard);
+MemoizedPatientCard.displayName = "PatientCard";
+
+export default MemoizedPatientCard;
