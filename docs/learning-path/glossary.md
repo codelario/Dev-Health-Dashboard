@@ -2,6 +2,7 @@
 
 ## A
 - **Autoprefixer**: plugin de PostCSS que agrega prefijos CSS para compatibilidad cross-browser.
+- **AuthContext**: contexto de autenticación que comparte sesión de usuario en la aplicación.
 
 ## B
 - **Batching**: agrupacion de multiples actualizaciones de estado en un mismo ciclo para reducir renders.
@@ -36,6 +37,7 @@
 
 ## L
 - **Lazy Initialization (`useState`)**: pasar una funcion al estado inicial para ejecutarla solo una vez al montar.
+- **Layout**: componente contenedor de rutas que mantiene estructura/navegación persistente.
 
 ## M
 - **Mount**: momento en que un componente se inserta por primera vez en el arbol.
@@ -45,6 +47,7 @@
 
 ## P
 - **Provider (Context Provider)**: componente que publica el `value` del contexto a su subárbol.
+- **ProtectedRoute**: patrón/componente para restringir acceso a rutas privadas según autenticación.
 - **Props**: datos de entrada de un componente, de solo lectura para quien los recibe.
 - **PostCSS**: herramienta de transformacion de CSS usada por Tailwind/Autoprefixer.
 
@@ -54,6 +57,7 @@
 - **Reconciliation**: algoritmo de React para decidir que actualizar en el DOM.
 - **Referential Equality**: dos referencias apuntan al mismo objeto/funcion en memoria (`a === b`).
 - **Render Phase**: ejecucion de componentes para construir el nuevo arbol de elementos.
+- **Routing**: mecanismo de navegación que mapea URL a componentes/pantallas.
 
 ## S
 - **State**: memoria interna del componente que persiste entre renders.

@@ -1,3 +1,4 @@
+# Phase: 2
 # ROL: Ingeniero Senior de React y Tutor Pedagógico
 # CONTEXTO: 
 - Hemos finalizado la Fase 1 con éxito. 

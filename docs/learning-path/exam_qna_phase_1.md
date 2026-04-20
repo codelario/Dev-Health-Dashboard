@@ -120,3 +120,20 @@
 **Explicacion:**
 - Evita pasar props por múltiples capas cuando varios componentes necesitan el mismo dato.
 - Es ideal para datos transversales como tema, usuario o idioma.
+
+## 19) Diferencia entre Context API y librerías de estado global (ej. Zustand)
+**Respuesta corta:** Context es nativo y simple; Zustand ofrece mejor granularidad para apps con estado global más grande y dinámico.
+
+**Explicacion:**
+- Context API funciona muy bien para dominios acotados (auth, tema, idioma).
+- Cuando el `value` del Provider cambia, consumidores de ese contexto re-renderizan.
+- Zustand permite suscripción por selector/slice, reduciendo renders innecesarios en escenarios de alta frecuencia.
+
+## 20) ¿Qué reglas debe seguir un Custom Hook para ser válido?
+**Respuesta corta:** debe seguir las Rules of Hooks y comenzar con `use`.
+
+**Explicacion:**
+- Debe comenzar con `use` (por convención y tooling).
+- Solo puede llamarse en nivel superior de componente/hook (no en `if`, loops, callbacks).
+- Debe mantener orden de llamadas estable entre renders.
+- Puede componer otros hooks respetando exactamente estas reglas.
