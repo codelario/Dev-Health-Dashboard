@@ -137,3 +137,19 @@
 - Solo puede llamarse en nivel superior de componente/hook (no en `if`, loops, callbacks).
 - Debe mantener orden de llamadas estable entre renders.
 - Puede componer otros hooks respetando exactamente estas reglas.
+
+## 21) ¿Por qué los Compound Components son mejores que pasar 20 props a un solo componente?
+**Respuesta corta:** porque ofrecen composición declarativa y reducen acoplamiento.
+
+**Explicacion:**
+- Evitan la explosión de props y APIs difíciles de mantener.
+- Permiten separar responsabilidades en subcomponentes claros.
+- Mejoran legibilidad y escalabilidad del diseño del componente.
+
+## 22) ¿En qué se diferencia `useTransition` de `useDeferredValue`?
+**Respuesta corta:** `useTransition` marca updates como no urgentes; `useDeferredValue` difiere un valor para consumirlo después.
+
+**Explicacion:**
+- `useTransition`: actúa en el punto donde disparas `setState` (origen del update).
+- `useDeferredValue`: actúa sobre un valor derivado ya disponible (consumo/render).
+- Ambos mejoran fluidez, pero resuelven momentos distintos del pipeline de render.

@@ -12,6 +12,8 @@
 - **Cleanup (`useEffect`)**: funcion de limpieza que React ejecuta antes de rerun del efecto o al desmontar.
 - **Commit Phase**: etapa donde React aplica cambios reales al DOM.
 - **Component**: funcion (o clase) que devuelve UI declarativa en React.
+- **Compound Components**: patrón de composición donde un componente expone subcomponentes coordinados bajo una API declarativa.
+- **Controlled Component**: input/form cuyo valor depende del estado React.
 - **Context API**: mecanismo de React para compartir datos entre componentes sin prop drilling.
 - **createContext**: funcion que crea un contexto y su estructura de Provider/Consumer.
 
@@ -21,6 +23,7 @@
 
 ## E
 - **Effect**: logica secundaria (API calls, subscriptions, logs, timers) que no pertenece al render puro.
+- **Error Boundary**: componente de clase que captura errores de render en su subárbol y muestra fallback.
 
 ## H
 - **HMR (Hot Module Replacement)**: reemplazo de modulos en caliente sin recargar la pagina completa.
@@ -70,9 +73,12 @@
 ## U
 - **useCallback**: memoiza la referencia de una funcion entre renders cuando sus dependencias no cambian.
 - **useContext**: lee el valor del contexto más cercano provisto por un Provider.
+- **useDeferredValue**: difiere la actualización de un valor no urgente para priorizar interacciones de UI.
 - **useMemo**: memoiza un valor computado para evitar recalculos costosos innecesarios.
 - **useRef**: guarda un valor mutable persistente entre renders sin disparar render al cambiarlo.
+- **useTransition**: marca updates como no urgentes para que React priorice actualizaciones urgentes.
 - **Unmount**: momento en que el componente se elimina del arbol.
+- **Uncontrolled Component**: input/form que se lee por referencia al DOM (ref) en vez de estado React continuo.
 - **Updater Function**: forma de `setState(prev => next)` que usa estado previo confiable.
 
 ## V
