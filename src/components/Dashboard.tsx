@@ -65,7 +65,7 @@ export default function Dashboard() {
       <MountLogger scope="Dashboard" />
       <header className="mb-6">
         <h1 className="text-3xl font-bold text-ink">Dev-Health Dashboard</h1>
-        <p className="text-slate-600">Phase 2: Performance, render control, and advanced hooks.</p>
+        <p className="text-slate-600">Fase 3: estado global, rutas protegidas y hooks personalizados.</p>
       </header>
 
       <div className="mb-6 rounded-xl border border-slate-200 bg-white p-4">

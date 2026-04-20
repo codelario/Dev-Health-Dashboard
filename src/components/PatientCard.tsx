@@ -1,4 +1,5 @@
 import { memo, useRef, useState } from "react";
+import { Link } from "react-router-dom";
 import type { Patient } from "../types/patient";
 import { usePerformanceContext } from "../context";
 
@@ -77,6 +78,10 @@ function PatientCard({ patient, onHydrationBoost, onDeletePatient }: PatientCard
         >
           Remove
         </button>
+
+        <Link className="rounded-md border border-slate-300 px-3 py-2 text-sm font-medium" to={`/paciente/${patient.id}`}>
+          Ver detalle
+        </Link>
       </div>
 
       {/*
